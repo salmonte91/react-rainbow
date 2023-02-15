@@ -19,8 +19,17 @@ function App() {
   let colorMap = colors.map((color, i) => {
     return <ColorBlock color={color} key={i}/>;
   });
+  
+  const checkColor = (newColor) => {
+    const cool = new Option().style;
+    cool.color = newColor
+    return cool.color !== ""
+  }
+
   const addColor = (newColor) => {
-    setColors([colors, newColor])
+    if(checkColor(newColor)){
+    setColors([...colors, newColor])
+  }
   }
   return <div className="App">
     {colorMap}
